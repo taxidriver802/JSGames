@@ -1,8 +1,7 @@
 .hangman {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   background: linear-gradient(135deg, #440000, #000000);
   color: #fff;
   box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
@@ -11,6 +10,7 @@
   line-height: 2.5;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
+  padding: 20px;
 }
 
 .hangman h2 {
@@ -19,7 +19,7 @@
   margin-bottom: 20px;
 }
 
-.hangman button {
+.hangman__button {
   background: orangered;
   border: none;
   padding: 10px 20px;
@@ -29,8 +29,38 @@
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 0 0 4px orange, 0 0 0 8px red, 0 0 0 12px orange;
+  align-self: center;
 }
 
 .hangman button:hover {
   box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+}
+
+.hangman__container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hangman__container-screen {
+  width: 100%;
+  border: 1px solid #fff;
+  padding: 20px;
+}
+
+.hangman__container-screen-img {
+  background-color: #fff;
+}
+
+.hangman__container-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #fff;
+}
+
+.hangman__container-winloss {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  border: 1px solid #fff;
 }

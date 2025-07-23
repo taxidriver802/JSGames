@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Hangman.css';
 
-import getRandomWord from './HangmanLogic';
+import {
+  getRandomWord,
+  calculateLives,
+  handleGuess,
+  isCorrectGuess,
+  getDisplayWord,
+  isGameWon,
+} from './HangmanLogic';
 
 const Hangman = () => {
   const [word, setWord] = useState('');
@@ -17,45 +24,103 @@ const Hangman = () => {
 
   const navigate = useNavigate();
 
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.toUpperCase().split('');
-
-  useEffect(() => {
-    let user_input = prompt('Are you ready to play? (Y/N)');
-    if (user_input === 'Y') {
-      setGameOver(false);
-    } else {
-      setGameOver(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (gameOver) {
-      navigate('/');
-    }
-  }, [gameOver, navigate]);
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   useEffect(() => {
     const newWord = getRandomWord();
     setWord(newWord);
-    let initialLives = 6;
-    if (newWord.length > 10) {
-      initialLives = 10;
-    } else if (newWord.length > 5) {
-      initialLives = 8;
-    }
-    setLives(initialLives);
+    setLives(calculateLives(newWord));
   }, []);
 
   useEffect(() => {
-    const wordLetters = new Set(word.split(''));
-    setWordLetters(wordLetters);
-  }, [word]);
+    if (lives === 0) {
+      setGameLost(true);
+      setLosses((prev) => prev + 1);
+    }
+  }, [lives]);
+
+  useEffect(() => {
+    if (usedLetters.length === 0) return;
+
+    if (isGameWon(word, usedLetters)) {
+      setGameWon(true);
+      setWins((prev) => prev + 1);
+    }
+  }, [word, usedLetters]);
+
+  const onLetterClick = (letter) => {
+    setUsedLetters((prev) => handleGuess(letter, prev));
+    if (!isCorrectGuess(word, letter)) {
+      setLives((prev) => prev - 1);
+    }
+  };
+
+  const resetGame = () => {
+    const newWord = getRandomWord();
+    setWord(newWord);
+    setLives(calculateLives(newWord));
+    setUsedLetters([]);
+    setGameWon(false);
+    setGameLost(false);
+  };
+
+  console.log(gameWon, gameLost);
 
   return (
     <div className="hangman">
       <h2>Hangman</h2>
-      <p>Game Word:{word}</p>
-      <button onClick={() => navigate('/')}>Back to Menu</button>
+      <div className="hangman__container">
+        <div className="hangman__container-info">
+          <p>Lives:{lives}</p>
+          <p>Used Letters:{usedLetters.join(', ')}</p>
+          <div className="hangman__container-winloss">
+            <p>Games Won:{wins}</p>
+            <p>Games Lost:{losses}</p>
+          </div>
+        </div>
+        <div className="hangman__container-screen">
+          <div className="hangman__container-screen-img">
+            <img src={`/assets/Hangman/hangman${lives}.svg`} alt="Hangman" />
+          </div>
+          {!gameWon && !gameLost && (
+            <div className="hangman__container-screen-alphabet">
+              {alphabet
+                .filter((letter) => !usedLetters.includes(letter))
+                .map((letter) => (
+                  <button key={letter} onClick={() => onLetterClick(letter)}>
+                    {letter}
+                  </button>
+                ))}
+            </div>
+          )}
+
+          <p>Game Word: {getDisplayWord(word, usedLetters)}</p>
+          <p>dev word: {word}</p>
+        </div>
+      </div>
+
+      {gameWon && (
+        <>
+          {' '}
+          <p>You Won! The word was {word}.</p>
+          <button className="hangman__button" onClick={resetGame}>
+            Restart?
+          </button>
+        </>
+      )}
+
+      {gameLost && (
+        <>
+          {' '}
+          <p>You Lost! The word was {word}.</p>
+          <button className="hangman__button" onClick={resetGame}>
+            Restart?
+          </button>
+        </>
+      )}
+      <button className="hangman__button" onClick={() => navigate('/')}>
+        Back to Menu
+      </button>
     </div>
   );
 };
