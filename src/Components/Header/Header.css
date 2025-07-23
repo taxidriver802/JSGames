@@ -1,0 +1,18 @@
+.header {
+  color: red;
+  border: none;
+  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+  border-radius: 10px 10px 0 0;
+  margin: 15px;
+  line-height: 2.5;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.header__title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  -webkit-text-stroke: 0.5px rgb(255, 136, 0);
+  transform: scaleY(2);
+}

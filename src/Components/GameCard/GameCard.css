@@ -1,0 +1,32 @@
+.game__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 255, 0.664);
+  color: orange;
+  border-radius: 5px;
+  margin: 20px;
+  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+  -webkit-text-stroke: 1px red;
+}
+
+.game__card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 0 4px orange, 0 0 0 8px red, 0 0 0 12px orange;
+  opacity: 0.8;
+}
+
+.game__card-title {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  color: orange;
+}

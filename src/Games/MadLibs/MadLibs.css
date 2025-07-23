@@ -1,0 +1,36 @@
+.madlibs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #440000, #000000);
+  color: #fff;
+  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+  border-radius: 0;
+  margin: 15px;
+  line-height: 2.5;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.madlibs h2 {
+  font-size: 2rem;
+  color: orangered;
+  margin-bottom: 20px;
+}
+
+.madlibs button {
+  background: orangered;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 4px orange, 0 0 0 8px red, 0 0 0 12px orange;
+}
+
+.madlibs button:hover {
+  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+}
