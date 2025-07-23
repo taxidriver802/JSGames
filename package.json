@@ -1,7 +1,7 @@
 {
   "name": "jsgames",
   "version": "0.1.0",
-  "homepage": "https://taxidriver802.github.io/jSGames/",
+  "homepage": "https://taxidriver802.github.io/JSGames/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
