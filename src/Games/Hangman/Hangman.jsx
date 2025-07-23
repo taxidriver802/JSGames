@@ -13,14 +13,12 @@ import {
 
 const Hangman = () => {
   const [word, setWord] = useState('');
-  const [wordLetters, setWordLetters] = useState([]);
   const [lives, setLives] = useState(6);
   const [usedLetters, setUsedLetters] = useState([]);
   const [gameWon, setGameWon] = useState(false);
   const [gameLost, setGameLost] = useState(false);
   const [wins, setWins] = useState(0);
   const [losses, setLosses] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
 
   const navigate = useNavigate();
 
