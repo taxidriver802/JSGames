@@ -11,12 +11,33 @@
   font-family: 'Press Start 2P', cursive;
   text-align: center;
   padding: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .hangman h2 {
   font-size: 2rem;
   color: orangered;
   margin-bottom: 20px;
+}
+
+.hangman__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.hangman__description-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.hangman__description-word {
+  font-size: 1rem;
+  margin: 0;
+  text-align: left;
+  padding: 10px 15px 0;
+  width: 900px;
 }
 
 .hangman__button {
@@ -39,28 +60,70 @@
 .hangman__container {
   display: flex;
   justify-content: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.hangman__container-screen-alphabet {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  padding: 10px;
+  /* border: 5px solid black;
+  border-radius: 10px; */
 }
 
 .hangman__container-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  border: 1px solid #fff;
+  border: 5px solid black;
+  border-radius: 10px;
   padding: 20px;
 }
 
 .hangman__container-screen-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.hangman__container-screen-img-container {
   background-color: #fff;
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.hangman__container-screen-img-lives {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hangman__container-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #fff;
+  border: 5px solid black;
+  border-radius: 10px;
 }
 
 .hangman__container-winloss {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding: 0 20px;
   margin: 0;
-  border: 1px solid #fff;
+  border: 5px solid black;
+  border-radius: 10px;
 }

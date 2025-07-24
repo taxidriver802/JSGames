@@ -69,34 +69,52 @@ const Hangman = () => {
       <h2>Hangman</h2>
       <div className="hangman__container">
         <div className="hangman__container-info">
-          <p>Lives:{lives}</p>
-          <p>Used Letters:{usedLetters.join(', ')}</p>
-          <div className="hangman__container-winloss">
-            <p>Games Won:{wins}</p>
-            <p>Games Lost:{losses}</p>
+          <div className="hangman__description">
+            <p className="hangman__description-title">Description:</p>
+            <p className="hangman__description-word">
+              Guess the hidden word one letter at a time. Each incorrect guess
+              brings the hangman closer to completion. Can you solve the word
+              before you run out of lives?
+            </p>
+          </div>
+          <div className="hangman__container-alphabet">
+            <p>Used Letters:{usedLetters.join(', ')}</p>
+            {!gameWon && !gameLost && (
+              <div className="hangman__container-screen-alphabet">
+                {alphabet
+                  .filter((letter) => !usedLetters.includes(letter))
+                  .map((letter) => (
+                    <button key={letter} onClick={() => onLetterClick(letter)}>
+                      {letter}
+                    </button>
+                  ))}
+              </div>
+            )}
+            <div className="hangman__container-winloss">
+              <p>Games Won:{wins}</p>
+              <p>Games Lost:{losses}</p>
+            </div>
           </div>
         </div>
         <div className="hangman__container-screen">
-          <div className="hangman__container-screen-img">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/Hangman/hangman${lives}.svg`}
-              alt="Hangman"
-            />
+          <div className="hangman__container-screen-img-container">
+            <p className="hangman__container-screen-img-lives">Lives:{lives}</p>
+            {lives !== 0 ? (
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/Hangman/hangman${lives}.svg`}
+                alt="Hangman"
+                className="hangman__container-screen-img"
+              />
+            ) : (
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/Hangman/hangman10_with_x_eyes.svg`}
+                alt="Hangman"
+                className="hangman__container-screen-img"
+              />
+            )}
           </div>
-          {!gameWon && !gameLost && (
-            <div className="hangman__container-screen-alphabet">
-              {alphabet
-                .filter((letter) => !usedLetters.includes(letter))
-                .map((letter) => (
-                  <button key={letter} onClick={() => onLetterClick(letter)}>
-                    {letter}
-                  </button>
-                ))}
-            </div>
-          )}
 
           <p>Game Word: {getDisplayWord(word, usedLetters)}</p>
-          <p>dev word: {word}</p>
         </div>
       </div>
 
