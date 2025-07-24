@@ -78,7 +78,10 @@ const Hangman = () => {
         </div>
         <div className="hangman__container-screen">
           <div className="hangman__container-screen-img">
-            <img src={`/assets/Hangman/hangman${lives}.svg`} alt="Hangman" />
+            <img
+              src={`${process.env.PUBLIC_URL}/Hangman/hangman${lives}.svg`}
+              alt="Hangman"
+            />
           </div>
           {!gameWon && !gameLost && (
             <div className="hangman__container-screen-alphabet">
