@@ -79,7 +79,7 @@ const Hangman = () => {
         <div className="hangman__container-screen">
           <div className="hangman__container-screen-img">
             <img
-              src={`${process.env.PUBLIC_URL}/Hangman/hangman${lives}.svg`}
+              src={`${process.env.PUBLIC_URL}/assets/Hangman/hangman${lives}.svg`}
               alt="Hangman"
             />
           </div>
