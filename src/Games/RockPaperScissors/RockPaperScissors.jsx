@@ -18,7 +18,6 @@ const RockPaperScissors = () => {
   });
   const [wins, setWins] = useState(() => getStoredStat('rps', 'Wins'));
   const [losses, setLosses] = useState(() => getStoredStat('rps', 'Losses'));
-  const [result, setResult] = useState('');
   const [feedback, setFeedback] = useState('');
 
   const navigate = useNavigate();
