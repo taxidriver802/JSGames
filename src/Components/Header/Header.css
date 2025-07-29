@@ -16,3 +16,21 @@
   -webkit-text-stroke: 0.5px rgb(255, 136, 0);
   transform: scaleY(2);
 }
+
+@media (max-width: 1000px) {
+  .header__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .header__title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .header__title {
+    font-size: 0.75rem;
+  }
+}

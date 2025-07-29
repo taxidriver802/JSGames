@@ -1,4 +1,11 @@
 .App {
-  transform: scaleY(0.5);
-  transform: scaleX(0.75);
+  max-width: 75%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+  .app__main {
+    
+  }
 }

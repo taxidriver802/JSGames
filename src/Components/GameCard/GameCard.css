@@ -30,3 +30,13 @@
   border: none;
   color: orange;
 }
+
+@media (max-width: 530px) {
+  .game__card {
+    height: 200px;
+    width: 200px;
+  }
+  .game__card-title {
+    font-size: 1.5rem;
+  }
+}

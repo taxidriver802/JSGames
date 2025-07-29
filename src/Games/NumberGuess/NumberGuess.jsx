@@ -192,15 +192,15 @@ const NumberGuess = () => {
           <p>Wins: {wins}</p>
           <p>Losses: {losses}</p>
         </div>
-      </div>
-      <div className="exit_game">
-        <button
-          className="game__button"
-          type="button"
-          onClick={() => navigate('/')}
-        >
-          Back to Menu
-        </button>
+        <div className="exit_game">
+          <button
+            className="game__button"
+            type="button"
+            onClick={() => navigate('/')}
+          >
+            Back to Menu
+          </button>
+        </div>
       </div>
     </>
   );

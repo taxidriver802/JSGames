@@ -15,3 +15,21 @@
   color: orange;
   -webkit-text-stroke: 1px red;
 }
+
+@media (max-width: 1000px) {
+  .main__title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 660px) {
+  .main__title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .main__title {
+    font-size: 0.75rem;
+  }
+}

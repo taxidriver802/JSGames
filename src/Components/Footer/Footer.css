@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (max-width: 1800px) {
+  .footer p {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 1300px) {
+  .footer p {
+    font-size: 0.65rem;
+    max-width: 500px;
+  }
+  .footer {
+    gap: 10px;
+  }
+  .footer__easteregg {
+    justify-self: flex-end;
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer p {
+    font-size: 0.5rem;
+  }
+}
