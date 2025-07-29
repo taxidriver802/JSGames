@@ -1,70 +1,129 @@
-# Getting Started with Create React App
+# 🎮 JS Arcade Collection
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A nostalgic mini-arcade of classic games originally built in Python and reimagined with **React JavaScript** for the web. This collection is a personal project focused on recreating text-based terminal games with modern UI/UX — clean, fast, and responsive.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🕹️ Games Included
 
-### `npm start`
+- **Hangman** – Guess the word before your stickman meets his fate
+- **Tic Tac Toe** – Classic 3x3 grid with player vs player mode
+- **Number Guess** – Can you guess the secret number in time?
+- **Rock Paper Scissors** – The timeless battle of logic and luck
+- **Mad Libs** – A silly, creative word game using user input
+- **More Games Coming Soon!** – Stay tuned for new classics and surprises
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Live Demo
 
-### `npm test`
+🔗 [View the Arcade Online](https://taxidriver802.github.io/JSGames/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> _(Hosted with GitHub Pages)_
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧠 Motivation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project stemmed from a few Python-based games that ran in the command line. I wanted to convert these games into a language I understood better, allowing me to give the games improved user experiences with modern web technologies. Each game has been carefully translated, styled, and structured for the browser with performance, modularity, and mobile support in mind.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Built With
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **React** – UI components & routing
+- **JavaScript (ES6+)** – Core game logic
+- **React Router** – Page navigation
+- **CSS Modules** – Responsive & themed styling
+- **HTML5/CSS3** – Semantic layout
+- **LocalStorage** – Stores wins/losses for each game
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📂 Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+src/
+├── Components/
+│   ├── Header/
+│   ├── Footer/
+│   ├── GameCard/
+│   └── GameCards/
+├── Games/
+│   ├── Hangman/
+│   ├── TicTacToe/
+│   ├── NumberGuess/
+│   ├── RockPaperScissors/
+│   └── MadLibs/
+├── utils/
+├── App.jsx
+├── index.js
+└── index.css
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📦 Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+Make sure you have:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Node.js (v16+ recommended)
+- npm (comes with Node)
 
-### Analyzing the Bundle Size
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Clone the repository:
 
-### Making a Progressive Web App
+   ```bash
+   git clone https://github.com/taxidriver802/JSGames.git
+   cd JSGames
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Install dependencies:
 
-### Advanced Configuration
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+3. Start the local dev server:
 
-### Deployment
+   ```bash
+   npm run dev
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+4. Open your browser at:
+   ```
+   http://localhost:3000
+   ```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧪 Dev Notes
+
+- Games are self-contained in their folders
+- Logic is separated from UI for maintainability
+- React Router is used for routing, with HashRouter for GitHub Pages support
+
+---
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## ✨ Future Plans
+
+- Add sound effects & background music toggle
+- High score tracking with a backend (MongoDB)
+- User login to save progress
+- Add more games (Snake, Memory Match, Simon Says)
+
+---
+
+## 🙌 Acknowledgments
+
+- [Python games repository](https://github.com/taxidriver802/python-practice-games)
+- Original python games Inspired by [FreeCodeCamp - 12 Beginner Python Projects - Coding Course](https://www.youtube.com/watch?v=8ext9G7xspg&t=4786s)
+- Fonts: [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
+- Built by Jason Cox
