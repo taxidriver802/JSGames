@@ -15,7 +15,6 @@ const GameCards = () => {
   ];
 
   const handleNavigate = (path) => {
-    console.log(path, 'gameCards');
     navigate(path);
   };
 

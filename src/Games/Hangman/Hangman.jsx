@@ -11,6 +11,8 @@ import {
   isGameWon,
 } from './HangmanLogic';
 
+import { getStoredStat, setStoredStat } from '../../utils/utils';
+
 const Hangman = () => {
   const [word, setWord] = useState('');
   const [lives, setLives] = useState(6);
@@ -19,6 +21,11 @@ const Hangman = () => {
   const [gameLost, setGameLost] = useState(false);
   const [wins, setWins] = useState(0);
   const [losses, setLosses] = useState(0);
+
+  useEffect(() => {
+    setWins(getStoredStat('hangman', 'Wins'));
+    setLosses(getStoredStat('hangman', 'Losses'));
+  }, []);
 
   const navigate = useNavigate();
 
@@ -33,7 +40,11 @@ const Hangman = () => {
   useEffect(() => {
     if (lives === 0) {
       setGameLost(true);
-      setLosses((prev) => prev + 1);
+      setLosses((prev) => {
+        const updated = prev + 1;
+        setStoredStat('hangman', 'Losses', updated);
+        return updated;
+      });
     }
   }, [lives]);
 
@@ -42,7 +53,11 @@ const Hangman = () => {
 
     if (isGameWon(word, usedLetters)) {
       setGameWon(true);
-      setWins((prev) => prev + 1);
+      setWins((prev) => {
+        const updated = prev + 1;
+        setStoredStat('hangman', 'Wins', updated);
+        return updated;
+      });
     }
   }, [word, usedLetters]);
 
@@ -61,8 +76,6 @@ const Hangman = () => {
     setGameWon(false);
     setGameLost(false);
   };
-
-  console.log(gameWon, gameLost);
 
   return (
     <div className="hangman">

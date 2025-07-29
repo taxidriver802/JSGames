@@ -1,8 +1,7 @@
-.number-guess {
+.game__container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   background: linear-gradient(135deg, #440000, #000000);
   color: #fff;
   box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
@@ -11,15 +10,39 @@
   line-height: 2.5;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
+  padding: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
-.number-guess h2 {
-  font-size: 2rem;
-  color: orangered;
-  margin-bottom: 20px;
+.game__title {
+  color: #ff4c00;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px #ff4c00;
 }
 
-.number-guess button {
+.game__setup,
+.game__play {
+  margin-top: 1.5rem;
+}
+
+.game__setup-max-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game__input {
+  max-width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem auto;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: #111;
+  color: #ff4c00;
+  border: 2px solid #ff4c00;
+}
+
+.game__button {
   background: orangered;
   border: none;
   padding: 10px 20px;
@@ -29,8 +52,60 @@
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 0 0 4px orange, 0 0 0 8px red, 0 0 0 12px orange;
+  align-self: center;
+  transition: 0.2s;
 }
 
-.number-guess button:hover {
-  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+.game__buttom-submit {
+  margin-left: 15px;
+}
+
+.game__button--diff-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.game__button--diff {
+  background-color: #000;
+  color: #ff4c00;
+  border: 2px solid #ff4c00;
+  margin: 10px 20px;
+  box-shadow: none;
+  transition: 0.2s;
+}
+
+.game__button--diff.selected {
+  background-color: #ff4c00;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 6px 2px #ff4c00;
+}
+
+.exit_game {
+  display: flex;
+  justify-content: center;
+}
+
+.game__button:hover {
+  background-color: #ff4c00;
+  color: #000;
+}
+
+.game__feedback {
+  margin: 1rem 0;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.game__buttons {
+  margin-top: 1rem;
+}
+
+.game__stats {
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 12px #ff4c00;
+  border-radius: 10px;
 }
