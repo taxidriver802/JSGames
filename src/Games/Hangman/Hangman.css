@@ -1,12 +1,12 @@
 .hangman {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   background: linear-gradient(135deg, #440000, #000000);
   color: #fff;
   box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
   border-radius: 0;
-  margin: 15px;
+  margin: 0 15px;
   line-height: 2.5;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
@@ -18,13 +18,15 @@
 .hangman h2 {
   font-size: 2rem;
   color: orangered;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .hangman__description {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 25px;
 }
 
 .hangman__description-title {
@@ -33,11 +35,12 @@
 }
 
 .hangman__description-word {
-  font-size: 1rem;
+  font-size: 0.75rem;
   margin: 0;
   text-align: left;
-  padding: 10px 15px 0;
-  width: 900px;
+  padding: 10px 0;
+  max-width: 900px;
+  width: 100%;
 }
 
 .hangman__button {
@@ -53,32 +56,68 @@
   align-self: center;
 }
 
-.hangman button:hover {
-  box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
-}
-
 .hangman__container {
   display: flex;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   max-height: 100vh;
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+.game__word-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.game__word-container p {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+
+  padding: 5px;
+}
+
+.game__word-answer {
+  font-size: 1rem;
 }
 
 .hangman__container-screen-alphabet {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  gap: 6px;
   padding: 10px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hangman__container-screen-alphabet button {
+  font-size: clamp(10px, 2.5vw, 18px);
+  padding: 8px;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hangman__container-screen-alphabet button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .hangman__container-screen {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
   border: 5px solid black;
   border-radius: 10px;
-  padding: 20px;
+  max-height: 575px;
+  overflow: hidden;
 }
 
 .hangman__container-screen-img {
@@ -91,8 +130,11 @@
 .hangman__container-screen-img-container {
   background-color: #fff;
   position: relative;
-  width: 100%;
+  height: fit-content;
+  width: fit-content;
   display: block;
+  margin: 0 auto;
+  transform: scale(0.5) translateY(-100px);
 }
 
 .hangman__container-screen-img-lives {
@@ -106,6 +148,7 @@
   font-size: 1rem;
   z-index: 2;
   pointer-events: none;
+  font-size: 0.5rem;
 }
 
 .hangman__container-info {
@@ -114,6 +157,13 @@
   justify-content: space-between;
   border: 5px solid black;
   border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.hangman__container-info::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .hangman__container-winloss {
@@ -121,7 +171,54 @@
   flex-direction: row;
   justify-content: space-around;
   padding: 0 20px;
-  margin: 0;
+  margin: 25px 0 0;
   border: 5px solid black;
   border-radius: 10px;
+  max-width: 100%;
+}
+
+@media (max-width: 850px) {
+  .hangman__container-screen {
+    flex-direction: row;
+    height: 300px;
+  }
+
+  .game__word-container {
+    margin-left: 20px;
+  }
+
+  .game__word-title {
+    font-size: 0.5rem;
+  }
+
+  .game__word-answer {
+    font-size: 0.5rem;
+  }
+
+  .hangman__description-word {
+    font-size: 0.5rem;
+  }
+
+  .hangman__container-winloss {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hangman__container-screen-alphabet {
+    gap: 4px;
+  }
+
+  .hangman__container-screen-alphabet button {
+    padding: 6px;
+    font-size: clamp(8px, 3vw, 14px);
+  }
+
+  .game__word-title {
+    font-size: 0.25rem;
+  }
+
+  .game__word-answer {
+    font-size: 0.25rem;
+  }
 }

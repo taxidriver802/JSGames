@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import './Hangman.css';
 
 import {
@@ -82,14 +83,6 @@ const Hangman = () => {
       <h2>Hangman</h2>
       <div className="hangman__container">
         <div className="hangman__container-info">
-          <div className="hangman__description">
-            <p className="hangman__description-title">Description:</p>
-            <p className="hangman__description-word">
-              Guess the hidden word one letter at a time. Each incorrect guess
-              brings the hangman closer to completion. Can you solve the word
-              before you run out of lives?
-            </p>
-          </div>
           <div className="hangman__container-alphabet">
             <p>Used Letters:{usedLetters.join(', ')}</p>
             {!gameWon && !gameLost && (
@@ -103,13 +96,31 @@ const Hangman = () => {
                   ))}
               </div>
             )}
-            <div className="hangman__container-winloss">
-              <p>Games Won:{wins}</p>
-              <p>Games Lost:{losses}</p>
-            </div>
           </div>
+          <div className="hangman__description">
+            <p className="hangman__description-title">Description:</p>
+            <p className="hangman__description-word">
+              Guess the hidden word one letter at a time. Each incorrect guess
+              brings the hangman closer to completion. Can you solve the word
+              before you run out of lives?
+            </p>
+          </div>
+          <div className="hangman__container-winloss">
+            <p>Games Won:{wins}</p>
+            <p>Games Lost:{losses}</p>
+          </div>
+          <button className="hangman__button" onClick={() => navigate('/')}>
+            Back to Menu
+          </button>
         </div>
+
         <div className="hangman__container-screen">
+          <div className="game__word-container">
+            <p className="game__word-title">Game Word:</p>
+            <p className="game__word-answer">
+              {getDisplayWord(word, usedLetters)}
+            </p>
+          </div>
           <div className="hangman__container-screen-img-container">
             <p className="hangman__container-screen-img-lives">Lives:{lives}</p>
             {lives !== 0 ? (
@@ -126,8 +137,6 @@ const Hangman = () => {
               />
             )}
           </div>
-
-          <p>Game Word: {getDisplayWord(word, usedLetters)}</p>
         </div>
       </div>
 
@@ -150,9 +159,6 @@ const Hangman = () => {
           </button>
         </>
       )}
-      <button className="hangman__button" onClick={() => navigate('/')}>
-        Back to Menu
-      </button>
     </div>
   );
 };
