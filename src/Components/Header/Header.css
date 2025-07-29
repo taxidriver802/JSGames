@@ -20,17 +20,26 @@
 @media (max-width: 1000px) {
   .header__title {
     font-size: 1.75rem;
+    transform: scaleX(1.25);
+  }
+}
+
+@media (max-width: 635px) {
+  .header__title {
+    transform: scaleX(1);
   }
 }
 
 @media (max-width: 530px) {
   .header__title {
     font-size: 1rem;
+    transform: scaleX(1.25);
   }
 }
 
 @media (max-width: 390px) {
   .header__title {
     font-size: 0.75rem;
+    transform: scaleX(1.25);
   }
 }
