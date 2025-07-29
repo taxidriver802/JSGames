@@ -183,6 +183,10 @@
     height: 300px;
   }
 
+  .hangman__container-alphabet-letter {
+    font-size: 0.5rem;
+  }
+
   .game__word-container {
     margin-left: 20px;
   }

@@ -84,7 +84,9 @@ const Hangman = () => {
       <div className="hangman__container">
         <div className="hangman__container-info">
           <div className="hangman__container-alphabet">
-            <p>Used Letters:{usedLetters.join(', ')}</p>
+            <p className="hangman__container-alphabet-letter">
+              Used Letters:{usedLetters.join(', ')}
+            </p>
             {!gameWon && !gameLost && (
               <div className="hangman__container-screen-alphabet">
                 {alphabet
