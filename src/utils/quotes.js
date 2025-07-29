@@ -1,8 +1,8 @@
 export const gameQuotes = {
   main: [
     'High Scores Are Temporary. Legends Are Forever. 🕹️',
-    /* 'Insert Coin to Continue...',
-    'Your quest begins... again.', */
+    'Insert Coin to Continue...',
+    'Your quest begins... again.',
   ],
   hangman: [
     'Tip: Start with common letters like E, A, and T!',
