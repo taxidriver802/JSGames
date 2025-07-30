@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/JSGames/static/css/main.b50cdb66.css",
-    "main.js": "/JSGames/static/js/main.7d741b17.js",
+    "main.css": "/JSGames/static/css/main.de52917f.css",
+    "main.js": "/JSGames/static/js/main.f5d38900.js",
     "index.html": "/JSGames/index.html",
-    "main.b50cdb66.css.map": "/JSGames/static/css/main.b50cdb66.css.map",
-    "main.7d741b17.js.map": "/JSGames/static/js/main.7d741b17.js.map"
+    "main.de52917f.css.map": "/JSGames/static/css/main.de52917f.css.map",
+    "main.f5d38900.js.map": "/JSGames/static/js/main.f5d38900.js.map"
   },
   "entrypoints": [
-    "static/css/main.b50cdb66.css",
-    "static/js/main.7d741b17.js"
+    "static/css/main.de52917f.css",
+    "static/js/main.f5d38900.js"
   ]
 }
