@@ -18,6 +18,7 @@ const RockPaperScissors = () => {
   });
   const [wins, setWins] = useState(() => getStoredStat('rps', 'Wins'));
   const [losses, setLosses] = useState(() => getStoredStat('rps', 'Losses'));
+  const [ties, setTies] = useState(() => getStoredStat('rps', 'Ties'));
   const [feedback, setFeedback] = useState('');
 
   const navigate = useNavigate();
@@ -50,6 +51,11 @@ const RockPaperScissors = () => {
 
     if (userChoiceName === cpuChoiceName) {
       setFeedback("It's a tie!");
+      setTies((prev) => {
+        const updated = prev + 1;
+        setStoredStat('rps', 'Ties', updated);
+        return updated;
+      });
     } else if (
       (userChoiceName === 'Rock' && cpuChoiceName === 'Scissors') ||
       (userChoiceName === 'Paper' && cpuChoiceName === 'Rock') ||
@@ -76,24 +82,32 @@ const RockPaperScissors = () => {
       <h2 className="rps__container-title">Rock Paper Scissors</h2>
       <div className="rps__container">
         <div className="rps__container-game">
-          <div className="rps__container-game-user ">
-            <div className="rps__game-user-choice">{userChoice.choiceIcon}</div>
-            <div className="rps__game-user-choice">{userChoice.choiceName}</div>
-            <div className="game-choices">
-              {choices.map(({ name, icon }) => (
-                <button
-                  className="rps__choice"
-                  key={name}
-                  onClick={() =>
-                    setUserChoice({ choiceName: name, choiceIcon: icon })
-                  }
-                >
-                  {icon}
-                  <p>{name}</p>
-                </button>
-              ))}
+          <div className="rps__container-game-user">
+            <div className="selection__container">
+              <div className="rps__game-user-choice">
+                {userChoice.choiceIcon}
+              </div>
+              <div className="rps__game-user-choice">
+                {userChoice.choiceName}
+              </div>
             </div>
-            <p>You</p>
+            <div className="rps__game-user-container">
+              <div className="game-choices">
+                {choices.map(({ name, icon }) => (
+                  <button
+                    className="rps__choice"
+                    key={name}
+                    onClick={() =>
+                      setUserChoice({ choiceName: name, choiceIcon: icon })
+                    }
+                  >
+                    {icon}
+                    <p>{name}</p>
+                  </button>
+                ))}
+              </div>
+              <p>You</p>
+            </div>
           </div>
           <div className="rps__container-submit">
             <button className="rps__choice rps__submit" onClick={handleVsClick}>
@@ -101,24 +115,36 @@ const RockPaperScissors = () => {
             </button>
           </div>
           <div className="rps__container-game-opp ">
-            <div className="rps__game-user-choice">{cpuChoice.choiceIcon}</div>
-            <div className="rps__game-user-choice">{cpuChoice.choiceName}</div>
-
-            <div className="game-choices">
-              {choices.map(({ name, icon }) => (
-                <button className="rps__choice" key={name}>
-                  {icon}
-                  <p>{name}</p>
-                </button>
-              ))}
+            <div className="selection__container-opp">
+              <div className="rps__game-user-choice">
+                {cpuChoice.choiceIcon}
+              </div>
+              <div className="rps__game-user-choice">
+                {cpuChoice.choiceName}
+              </div>
             </div>
-            <p>Opponent</p>
+            <div className="rps__game-opp-choice">
+              <div className="game-choices">
+                {choices.map(({ name, icon }) => (
+                  <button className="rps__choice" key={name}>
+                    {icon}
+                    <p>{name}</p>
+                  </button>
+                ))}
+              </div>
+              <p>Opponent</p>
+            </div>
           </div>
         </div>
-        <div className="rps__feedback">{feedback}</div>
-        <div className="rps__container-winloss">
-          <p>Wins: {wins}</p>
-          <p>Losses: {losses}</p>
+        <div className="rps__feedback">
+          {feedback}
+          <div className="rps__container-winloss">
+            <div className="winloss-container">
+              <p>Wins: {wins}</p>
+              <p>Losses: {losses}</p>
+            </div>
+            <p>Ties: {ties}</p>
+          </div>
         </div>
         <div className="rps__description">
           <h3>How to Play:</h3>
