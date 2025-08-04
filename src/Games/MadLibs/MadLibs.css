@@ -52,6 +52,12 @@
 .madlibs__screen-container {
   width: 100%;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.madlibs__screen-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .madlib__game-container h1 {
