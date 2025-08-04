@@ -23,7 +23,7 @@ const MadLibsGame = ({ phrase }) => {
 
     setInputs((prev) => ({
       ...prev,
-      [currentPlaceholder]: currentInput,
+      [rawPlaceholder]: currentInput,
     }));
 
     setCurrentInput('');
