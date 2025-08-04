@@ -1,7 +1,7 @@
 .madlibs {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background: linear-gradient(135deg, #440000, #000000);
   color: #fff;
@@ -11,6 +11,7 @@
   line-height: 2.5;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
+  width: 100%;
 }
 
 .madlibs h2 {
@@ -33,4 +34,73 @@
 
 .madlibs button:hover {
   box-shadow: 0 0 0 4px red, 0 0 0 8px orange, 0 0 0 12px red;
+}
+
+.madlib__phrase-container {
+  width: 100%;
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.madlib__game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* height: 100%; */
+}
+
+.madlibs__screen-container {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.madlib__game-container h1 {
+  margin: 0;
+}
+
+.madlib__game-container p {
+  margin: 0;
+}
+
+.madlibs__question-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.madlibs__question-form button {
+  max-width: 25%;
+  margin: 25px auto 0;
+}
+
+.question__form-container input {
+  margin-right: 10px;
+  background: transparent;
+  border: 1px solid red;
+}
+
+.madlib__title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  /*   background: ; */
+  border-radius: 25px;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+  border: 2px solid black;
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 850px) {
+  .madlib__title {
+    font-size: 1rem;
+    margin-bottom: 15px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .madlib__game-container p {
+    font-size: 0.75rem;
+  }
 }
